@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { HeartthrobClassesProps } from './HeartthrobClassesInterface'
 
 const HeartthrobClasses = ({ children, mainClass, acrylic }) => {
     const acrylicClass = acrylic ? 'acrylic' : ''; //espaços desnecessários

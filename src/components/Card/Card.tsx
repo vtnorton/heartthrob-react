@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import * as React from 'react'
 import 'heartthrob'
-import HeartthrobClasses from '../Heartthrob-Classes'
+import HeartthrobClasses from '../../utils/HeartthrobClasses'
 
 interface Props {
     children: string,
