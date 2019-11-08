@@ -1,16 +1,17 @@
 /* eslint-disable no-unused-vars */
 import * as React from 'react'
 import 'heartthrob'
-import HeartthrobClasses from '../../utils/HeartthrobClasses'
+import Acrylic from '../../internals/Acrylic/Acrylic'
+
 
 interface Props {
     children: string,
     title?: string,
-    acrylic?: boolean
-    shadow?: number
+    acrylic?: boolean,
 }
 
 const Card = (props: Props) => {
+
     const cardTitle = () => {
         return (props.title) ?
             (<>
@@ -20,12 +21,12 @@ const Card = (props: Props) => {
     };
 
     return (
-        <HeartthrobClasses mainClass='card' acrylic={props.acrylic}>
+        <Acrylic mainClass='card' acrylic={props.acrylic}>
             <div>
                 {cardTitle()}
                 {props.children}
             </div>
-        </HeartthrobClasses>
+        </Acrylic>
     )
 }
 

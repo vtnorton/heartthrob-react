@@ -1,15 +1,19 @@
 import * as React from 'react'
-import { HeartthrobClassesProps } from './HeartthrobClassesInterface'
 
-const HeartthrobClasses = ({ children, mainClass, acrylic }) => {
-    const acrylicClass = acrylic ? 'acrylic' : ''; //espaços desnecessários
-    const classes = `${acrylicClass} no-shadown`;
+interface Props {
+    children: string,
+    mainClass: string,
+    acrylic: boolean
+}
+
+const HeartthrobProps = ({ children, mainClass, acrylic }) => {
+    const acrylicClass = acrylic ? 'acrylic' : '';
 
     const addClassesToChild = (mainClass: string) => {
         return (child: React.DetailedReactHTMLElement<{
             className: string;
         }, HTMLElement>) => {
-            return React.cloneElement(child, { className: mainClass + ' ' + classes });
+            return React.cloneElement(child, { className: mainClass + ' ' + acrylicClass });
         };
     }
 
@@ -28,4 +32,4 @@ const HeartthrobClasses = ({ children, mainClass, acrylic }) => {
     </>;
 }
 
-export default HeartthrobClasses
+export default HeartthrobProps
