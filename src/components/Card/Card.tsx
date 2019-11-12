@@ -5,7 +5,7 @@ import Acrylic from '../../internals/Acrylic/Acrylic'
 
 
 interface Props {
-    children: string,
+    children: any,
     title?: string,
     acrylic?: boolean,
 }

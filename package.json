@@ -20,7 +20,9 @@
     "url": "https://github.com/vtnorton/heartthrob-react/issues"
   },
   "homepage": "https://github.com/vtnorton/heartthrob-react#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@storybook/addon-a11y": "^5.2.5",
