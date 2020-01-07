@@ -10,7 +10,7 @@ let strings = new LocalizedStrings(
 		},
 	},
 	{
-		/* options */
+		pseudo: false
 	}
 );
 
