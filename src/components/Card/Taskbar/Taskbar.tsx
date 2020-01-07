@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 import * as React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import 'heartthrob'
-
-
 
 interface Props {
     children?: any,
     canGoBack?: boolean,
-    leftButtons?: any,
+    buttons?: any,
     mode?: string
 }
 
@@ -17,7 +17,7 @@ const Taskbar = (props: Props) => {
     const GetBack = () => {
         if (props.canGoBack) {
             return (<div className='left'>
-                <a className='btn btn-link' href=''> Return</a>
+                <a className='btn btn-link' href=''><FontAwesomeIcon icon={faChevronLeft} /> Return</a>
             </div>)
         }
         return null;
