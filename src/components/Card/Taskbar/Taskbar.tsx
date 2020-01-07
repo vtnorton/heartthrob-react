@@ -2,6 +2,7 @@
 import * as React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import strings from '../../../infrastructure/localization'
 import 'heartthrob'
 
 interface Props {
@@ -17,7 +18,7 @@ const Taskbar = (props: Props) => {
     const GetBack = () => {
         if (props.canGoBack) {
             return (<div className='left'>
-                <a className='btn btn-link' href=''><FontAwesomeIcon icon={faChevronLeft} /> Return</a>
+                <a className='btn btn-link' href=''><FontAwesomeIcon icon={faChevronLeft} /> {strings.getString('return')}</a>
             </div>)
         }
         return null;
