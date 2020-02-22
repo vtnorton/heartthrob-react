@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faEraser, faPlus, faTrashAlt, faSave, faEdit } from '@fortawesome/free-solid-svg-icons'
 import strings from '../../../infrastructure/localization'
 import 'heartthrob'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 interface Props {
     children?: any,
@@ -15,6 +16,10 @@ interface Props {
     deleteButton?: string,
     saveButton?: string,
     editButton?: string,
+    editIcon?: IconProp,
+    saveIcon?: IconProp,
+    deleteIcon?: IconProp,
+    createIcon?: IconProp
 }
 
 const Taskbar = (props: Props) => {
@@ -30,17 +35,21 @@ const Taskbar = (props: Props) => {
     }
 
     const GetDeleteButton = () => {
+        const _deleteIcon = (props.deleteIcon === null) ? props.deleteIcon : faTrashAlt
+        const _deleteText = props.deleteButton ? props.deleteButton : strings.getString('delete')
         return (
-            <button className='btn btn-danger'><FontAwesomeIcon icon={faTrashAlt} />
-                {props.deleteButton ? props.deleteButton : strings.getString('delete')}
+            <button className='btn btn-danger'><FontAwesomeIcon icon={_deleteIcon} />
+                {_deleteText}
             </button>
         )
     }
 
     const GetEditButton = () => {
+        const _editIcon = (props.editIcon === null) ? props.editIcon : faEdit
+        const _editText = props.editButton ? props.editButton : strings.getString('edit')
         if (props.canEdit) {
-            return (<button className='btn btn-primary'><FontAwesomeIcon icon={faEdit} />
-                {props.editButton ? props.editButton : strings.getString('edit')}
+            return (<button className='btn btn-primary'><FontAwesomeIcon icon={_editIcon} />
+                {_editText}
             </button>)
         }
         return null;
@@ -49,22 +58,26 @@ const Taskbar = (props: Props) => {
     const GetMode = () => {
         switch (props.mode) {
             case 'create':
+                const _createIcon = (props.createIcon === null) ? props.createIcon : faPlus
+                const _createText = props.createButton ? props.createButton : strings.getString('create')
                 return (
                     <>
                         <button className='btn btn-link'><FontAwesomeIcon icon={faEraser} />
                             {strings.getString('clean')}
                         </button>
-                        <button className='btn btn-primary'><FontAwesomeIcon icon={faPlus} />
-                            {props.createButton ? props.createButton : strings.getString('create')}
+                        <button className='btn btn-primary'><FontAwesomeIcon icon={_createIcon} />
+                            {_createText}
                         </button>
                     </>
                 )
             case 'edit':
+                const _saveIcon = (props.saveIcon === null) ? props.saveIcon : faSave
+                const _saveText = props.saveButton ? props.saveButton : strings.getString('save')
                 return (
                     <>
                         {GetDeleteButton()}
-                        <button className='btn btn-primary'><FontAwesomeIcon icon={faSave} />
-                            {props.saveButton ? props.saveButton : strings.getString('save')}
+                        <button className='btn btn-primary'><FontAwesomeIcon icon={_saveIcon} />
+                            {_saveText}
                         </button>
                     </>
                 )
