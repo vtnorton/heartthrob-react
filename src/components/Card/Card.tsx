@@ -1,13 +1,15 @@
 /* eslint-disable no-unused-vars */
 import * as React from 'react'
 import 'heartthrob'
-import Acrylic from '../../internals/Acrylic/Acrylic'
+import Acrylic from '../../effects/Acrylic/Acrylic'
+import Shadow from '../../effects/Shadow/Shadow'
 
 
 interface Props {
     children: any,
     title?: string,
     acrylic?: boolean,
+    shadow?: string
 }
 
 const Card = (props: Props) => {
@@ -21,12 +23,14 @@ const Card = (props: Props) => {
     };
 
     return (
-        <Acrylic mainClass='card' acrylic={props.acrylic}>
-            <div>
-                {cardTitle()}
-                {props.children}
-            </div>
-        </Acrylic>
+        <Shadow >
+            <Acrylic main='card' acrylic={props.acrylic}>
+                <div>
+                    {cardTitle()}
+                    {props.children}
+                </div>
+            </Acrylic>
+        </Shadow>
     )
 }
 

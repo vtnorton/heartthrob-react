@@ -1,13 +1,14 @@
 import * as React from 'react'
 
 interface Props {
-    children: string,
-    mainClass: string,
-    acrylic: boolean
+    children: any,
+    main?: string,
+    acrylic?: boolean
 }
 
-const HeartthrobProps = ({ children, mainClass, acrylic }) => {
+const AcrylicEffect = ({ children, main, acrylic } : Props) => {
     const acrylicClass = acrylic ? 'acrylic' : '';
+    const mainClass = main ? main : '';
 
     const addClassesToChild = (mainClass: string) => {
         return (child: React.DetailedReactHTMLElement<{
@@ -32,4 +33,4 @@ const HeartthrobProps = ({ children, mainClass, acrylic }) => {
     </>;
 }
 
-export default HeartthrobProps
+export default AcrylicEffect
