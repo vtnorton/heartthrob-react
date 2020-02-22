@@ -31,7 +31,49 @@ stories.add('With taskbar', () => {
                     Name
                     <input type='text' placeholder='Vitor N.' />
                 </label>
-                <Taskbar mode='up' canGoBack={boolean('Can get back from taskbar', true)}></Taskbar>
+                <Taskbar canGoBack={boolean('Can get back from taskbar', true)}></Taskbar>
+            </Card>
+        </div>
+    )
+})
+
+stories.add('With taskbar on create mode', () => {
+    return (
+        <div style={defaultstyle}>
+            <Card title={text('Card title', 'Hello world')} >
+                <label>
+                    Name
+                    <input type='text' placeholder='Vitor N.' />
+                </label>
+                <Taskbar mode='create' createButton={text('Create button content', '')} canGoBack={boolean('Can get back from taskbar', true)}></Taskbar>
+            </Card>
+        </div>
+    )
+})
+
+stories.add('With taskbar on edit mode', () => {
+    return (
+        <div style={defaultstyle}>
+            <Card title={text('Card title', 'Hello world')} >
+                <label>
+                    Name
+                    <input type='text' placeholder='Vitor N.' />
+                </label>
+                <Taskbar mode='edit' deleteButton={text('Delete button content', '')} saveButton={text('Save button content', '')} canGoBack={boolean('Can get back from taskbar', true)}></Taskbar>
+            </Card>
+        </div>
+    )
+})
+
+stories.add('With taskbar on details mode', () => {
+    return (
+        <div style={defaultstyle}>
+            <Card title={text('Card title', 'Hello world')} >
+                <label>
+                    Name
+                    <input type='text' placeholder='Vitor N.' />
+                </label>
+                <Taskbar mode='details' deleteButton={text('Delete button content', '')} editButton={text('Edit button content', '')} canGoBack={boolean('Can get back from taskbar', true)} canEdit={boolean('Can edit content', true)}></Taskbar>
             </Card>
         </div>
     )
