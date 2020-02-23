@@ -7,12 +7,12 @@ interface Props {
 	text: string,
 	icon?: any,
 	url?: string,
-	class?: string
+	className?: string
 }
 
 
 const Button = (props: Props) => {
-	const btnClass = props.class ? `btn ${props.class}` : 'btn'
+	const btnClass = props.className ? `btn ${props.className}` : 'btn'
 
 	const GetButtonType = () => {
 		if (props.url) {

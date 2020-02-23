@@ -5,7 +5,6 @@ import * as React from 'react'
 import Card from './Card'
 import Taskbar from './Taskbar/Taskbar'
 
-
 var defaultstyle = {
     padding: '40px'
 }

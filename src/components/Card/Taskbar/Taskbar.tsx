@@ -1,28 +1,12 @@
 /* eslint-disable no-unused-vars */
 import * as React from 'react'
+import { ITaskbar } from '../../../interfaces/ITaskbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faEraser, faPlus, faTrashAlt, faSave, faEdit } from '@fortawesome/free-solid-svg-icons'
 import strings from '../../../infrastructure/localization'
 import 'heartthrob'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
-interface Props {
-    children?: any,
-    canGoBack?: boolean,
-    canEdit?: boolean,
-    buttons?: any,
-    mode?: string,
-    createButton?: string,
-    deleteButton?: string,
-    saveButton?: string,
-    editButton?: string,
-    editIcon?: IconProp,
-    saveIcon?: IconProp,
-    deleteIcon?: IconProp,
-    createIcon?: IconProp
-}
-
-const Taskbar = (props: Props) => {
+const Taskbar = (props: ITaskbar) => {
     const needClear = props.canGoBack // || props.leftButtons;
 
     const GetBack = () => {
