@@ -1,17 +1,22 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 export interface ITaskbar {
-    children?: any,
-    canGoBack?: boolean,
-    canEdit?: boolean,
     buttons?: any,
-    mode?: string,
+    canEdit?: boolean,
+    canGoBack?: boolean,
+    goBackUrl?: string,
     createButton?: string,
+    createIcon?: IconProp,
+    createClickEvent?: any,
     deleteButton?: string,
-    saveButton?: string,
+    deleteIcon?: IconProp,
+    deleteClickEvent?: any,
     editButton?: string,
     editIcon?: IconProp,
+    editClickEvent?: any,
+    leftButtons?: any,
+    mode?: string,
+    saveButton?: string,
     saveIcon?: IconProp,
-    deleteIcon?: IconProp,
-    createIcon?: IconProp
+    saveClickEvent?: any
 }

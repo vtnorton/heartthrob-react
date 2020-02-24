@@ -1,18 +1,19 @@
 /* eslint-disable no-unused-vars */
 import * as React from 'react'
 import { ITaskbar } from '../../../interfaces/ITaskbar'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft, faEraser, faPlus, faTrashAlt, faSave, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faPlus, faTrashAlt, faSave, faEdit } from '@fortawesome/free-solid-svg-icons'
 import strings from '../../../infrastructure/localization'
 import 'heartthrob'
+import Button from '../../Button/Button'
 
 const Taskbar = (props: ITaskbar) => {
-    const needClear = props.canGoBack // || props.leftButtons;
+    const needClear = props.canGoBack || props.leftButtons;
 
     const GetBack = () => {
         if (props.canGoBack) {
+            // TODO: Needs to become a link
             return (<div className='left'>
-                <a className='btn btn-link' href=''><FontAwesomeIcon icon={faChevronLeft} /> {strings.getString('return')}</a>
+                <Button className='btn-link' url={props.goBackUrl} icon={faChevronLeft} text={strings.getString('return')} /> 
             </div>)
         }
         return null;
@@ -21,20 +22,14 @@ const Taskbar = (props: ITaskbar) => {
     const GetDeleteButton = () => {
         const _deleteIcon = (props.deleteIcon === null) ? props.deleteIcon : faTrashAlt
         const _deleteText = props.deleteButton ? props.deleteButton : strings.getString('delete')
-        return (
-            <button className='btn btn-danger'><FontAwesomeIcon icon={_deleteIcon} />
-                {_deleteText}
-            </button>
-        )
+        return (<Button className='btn-primary' onClick={props.deleteClickEvent} icon={_deleteIcon} text={_deleteText} />)
     }
 
     const GetEditButton = () => {
         const _editIcon = (props.editIcon === null) ? props.editIcon : faEdit
         const _editText = props.editButton ? props.editButton : strings.getString('edit')
         if (props.canEdit) {
-            return (<button className='btn btn-primary'><FontAwesomeIcon icon={_editIcon} />
-                {_editText}
-            </button>)
+            return (<Button className='btn-primary' onClick={props.editClickEvent} icon={_editIcon} text={_editText} />)
         }
         return null;
     }
@@ -44,25 +39,14 @@ const Taskbar = (props: ITaskbar) => {
             case 'create':
                 const _createIcon = (props.createIcon === null) ? props.createIcon : faPlus
                 const _createText = props.createButton ? props.createButton : strings.getString('create')
-                return (
-                    <>
-                        <button className='btn btn-link'><FontAwesomeIcon icon={faEraser} />
-                            {strings.getString('clean')}
-                        </button>
-                        <button className='btn btn-primary'><FontAwesomeIcon icon={_createIcon} />
-                            {_createText}
-                        </button>
-                    </>
-                )
+                return (<Button className='btn-primary' onClick={props.createClickEvent} icon={_createIcon}  text={_createText} />)
             case 'edit':
                 const _saveIcon = (props.saveIcon === null) ? props.saveIcon : faSave
                 const _saveText = props.saveButton ? props.saveButton : strings.getString('save')
                 return (
                     <>
                         {GetDeleteButton()}
-                        <button className='btn btn-primary'><FontAwesomeIcon icon={_saveIcon} />
-                            {_saveText}
-                        </button>
+                        <Button className='btn-primary' onClick={props.saveClickEvent} icon={_saveIcon} text={_saveText} />
                     </>
                 )
             case 'details':
@@ -78,7 +62,13 @@ const Taskbar = (props: ITaskbar) => {
     }
 
     const GetButtons = () => {
-        return ''
+        return props.buttons
+    }
+
+    const GetLeftButtons = () => {
+        return (<div className='left'>
+            {props.leftButtons}
+        </div>)
     }
 
     const GetActionButtons = () => {
@@ -104,6 +94,7 @@ const Taskbar = (props: ITaskbar) => {
     return (
         <div className='taskbar'>
             {GetBack()}
+            {GetLeftButtons()}
             {GetActionButtons()}
             {Clear()}
         </div>
