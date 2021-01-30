@@ -2,7 +2,7 @@
 import 'heartthrob'
 import * as React from 'react'
 
-import { ITaskbar } from 'interfaces/ITaskbar'
+import { ITaskbar } from '../../interfaces/ITaskbar'
 import { initializeIcons } from '@fluentui/react'
 
 import Shadow from '../../effects/Shadow/Shadow'
