@@ -1,1 +1,1 @@
-export * from './stringExtensions'
+export { getIntials, removeSpecialCharacters } from './stringExtensions'

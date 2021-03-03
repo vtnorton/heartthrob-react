@@ -1,4 +1,4 @@
-export function removeSpecialCharacters(text: string): string {
+export const removeSpecialCharacters = (text: string): string => {
 	return text
 		.toLowerCase()
 		.replace(new RegExp('[ÁÀÂÃ]', 'gi'), 'a')
@@ -9,7 +9,7 @@ export function removeSpecialCharacters(text: string): string {
 		.replace(new RegExp('[Ç]', 'gi'), 'c')
 }
 
-export function getIntials(value: string): string {
+export const getIntials = (value: string): string => {
 	value = removeSpecialCharacters(value)
 		.replace(/\W*(\w)\w*/g, '$1')
 		.toUpperCase()

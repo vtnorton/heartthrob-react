@@ -27,13 +27,15 @@
 		"@typescript-eslint/no-shadow": ["error"],
 		"@typescript-eslint/no-use-before-define": ["error"],
 		"react/jsx-filename-extension": [2, { "extensions": [".jsx", ".tsx"] }],
+		"react/jsx-closing-bracket-location": [1, "after-props"],
 		"react/jsx-one-expression-per-line": [0],
 		"react/jsx-props-no-spreading": "off",
 		"react/jsx-uses-react": [0],
 		"react/react-in-jsx-scope": [0],
 		"react/prop-types": [0],
 		"react/jsx-indent": [0],
-		"prettier/prettier": [0],
+		"newline-per-chained-call": ["error", { "ignoreChainWithDepth": 2 }],
+		"prettier/prettier": ["error"],
 		"no-console": "off",
 		"comma-dangle": ["error", "always-multiline"],
 		"import/prefer-default-export": "off",
@@ -43,6 +45,15 @@
 		"no-use-before-define": "off",
 		"max-len": "off",
 		"semi": ["error", "never"],
-		"indent": ["error", "tab", { "SwitchCase": 1 }]
+		"nonblock-statement-body-position": ["error", "below"],
+		"indent": [
+			"error",
+			"tab",
+			{
+				"MemberExpression": "off",
+				"ObjectExpression": 1,
+				"FunctionDeclaration": 1
+			}
+		]
 	}
 }
