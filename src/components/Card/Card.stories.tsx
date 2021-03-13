@@ -23,17 +23,10 @@ const taskbarCreate: ITaskbar = {
 	createButton: 'Create button content',
 }
 
-function deleteClickHandle() {
-	alert('your item was deleted')
-}
-
 stories.add('Basic usage', () => {
 	return (
 		<div style={defaultstyle}>
-			<Card
-				acrylic={boolean('Use acrylic design', false)}
-				title={text('Card title', 'Hello world')}
-			>
+			<Card acrylic={boolean('Use acrylic design', false)} title={text('Card title', 'Hello world')}>
 				Teste
 			</Card>
 		</div>
@@ -43,11 +36,7 @@ stories.add('Basic usage', () => {
 stories.add('With taskbar', () => {
 	return (
 		<div style={defaultstyle}>
-			<Card
-				acrylic={boolean('Use acrylic design', false)}
-				title={text('Card title', 'Hello world')}
-				taskbar={taskbarBasic}
-			>
+			<Card acrylic={boolean('Use acrylic design', false)} title={text('Card title', 'Hello world')} taskbar={taskbarBasic}>
 				<label>
 					Name
 					<input type='text' placeholder='Vitor N.' />
@@ -82,8 +71,7 @@ stories.add('With taskbar on edit mode', () => {
 					mode='edit'
 					deleteButton={text('Delete button content', '')}
 					saveButton={text('Save button content', '')}
-					canGoBack={boolean('Can get back from taskbar', true)}
-				></Taskbar>
+					canGoBack={boolean('Can get back from taskbar', true)}></Taskbar>
 			</Card>
 		</div>
 	)
@@ -102,8 +90,7 @@ stories.add('With taskbar on details mode', () => {
 					deleteButton={text('Delete button content', '')}
 					editButton={text('Edit button content', '')}
 					canGoBack={boolean('Can get back from taskbar', true)}
-					canEdit={boolean('Can edit content', true)}
-				></Taskbar>
+					canEdit={boolean('Can edit content', true)}></Taskbar>
 			</Card>
 		</div>
 	)

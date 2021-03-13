@@ -1,41 +1,35 @@
 {
+	"root": true,
 	"parser": "@typescript-eslint/parser",
-	"env": {
-		"commonjs": true,
-		"es6": true,
-		"node": true,
-		"jest": true
-	},
+	"plugins": ["@typescript-eslint"],
 	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended",
-		"prettier/@typescript-eslint",
-		"plugin:editorconfig/noconflict",
-		"plugin:prettier/recommended",
-		"prettier/react"
+		"plugin:react/recommended"
 	],
-	"plugins": ["prettier", "editorconfig", "@typescript-eslint", "react"],
-	"parserOptions": {
-		"ecmaVersion": 2020,
-		"sourceType": "module",
-		"ecmaFeatures": {
-			"jsx": true,
-			"tsx": true
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"settings": {
+		"react": {
+			"version": "17"
 		}
 	},
 	"rules": {
 		"@typescript-eslint/consistent-type-definitions": ["error", "interface"],
 		"@typescript-eslint/no-shadow": ["error"],
 		"@typescript-eslint/no-use-before-define": ["error"],
-		"react/jsx-filename-extension": [2, { "extensions": [".jsx", ".tsx"] }],
-		"react/jsx-closing-bracket-location": [1, "after-props"],
 		"react/jsx-one-expression-per-line": [0],
 		"react/jsx-props-no-spreading": "off",
 		"react/jsx-uses-react": [0],
 		"react/react-in-jsx-scope": [0],
 		"react/prop-types": [0],
 		"react/jsx-indent": [0],
+		"react/jsx-closing-bracket-location": ["error", { "selfClosing": "after-props", "nonEmpty": "after-props" }],
+		"jsx-quotes": ["error", "prefer-single"],
 		"newline-per-chained-call": ["error", { "ignoreChainWithDepth": 2 }],
-		"prettier/prettier": ["error"],
 		"no-console": "off",
 		"comma-dangle": ["error", "always-multiline"],
 		"import/prefer-default-export": "off",
@@ -46,14 +40,6 @@
 		"max-len": "off",
 		"semi": ["error", "never"],
 		"nonblock-statement-body-position": ["error", "below"],
-		"indent": [
-			"error",
-			"tab",
-			{
-				"MemberExpression": "off",
-				"ObjectExpression": 1,
-				"FunctionDeclaration": 1
-			}
-		]
+		"quotes": ["error", "single"]
 	}
 }

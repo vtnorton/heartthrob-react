@@ -6,3 +6,10 @@ export interface MenuItemType {
 	location?: string
 	action?: any // TODO: Descobrir
 }
+
+export interface HeaderProps {
+	accountMenu: MenuItemType[],
+	token: string,
+	systemName: string,
+	logo?: ImageBitmap
+}

@@ -18,7 +18,7 @@ interface Props {
 	taskbar?: ITaskbar
 }
 
-const Card = (props: Props) => {
+const Card = (props: Props): JSX.Element => {
 	initializeIcons()
 	const cardTitle = () => {
 		return props.title ? (
@@ -30,7 +30,8 @@ const Card = (props: Props) => {
 	}
 
 	const mountTaskbar = () => {
-		if (!props.taskbar) return null
+		if (!props.taskbar) 
+return null
 
 		return (
 			<Taskbar
@@ -51,8 +52,7 @@ const Card = (props: Props) => {
 				editClickEvent={props.taskbar.editClickEvent}
 				goBackUrl={props.taskbar.goBackUrl}
 				createClickEvent={props.taskbar.createClickEvent}
-				createIcon={props.taskbar.createIcon}
-			/>
+				createIcon={props.taskbar.createIcon}/>
 		)
 	}
 
