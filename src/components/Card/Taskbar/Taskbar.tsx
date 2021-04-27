@@ -1,11 +1,12 @@
+/* eslint-disable no-case-declarations */
 /* eslint-disable no-unused-vars */
 import 'heartthrob'
 import * as React from 'react'
-import { ITaskbar } from '../../../interfaces/ITaskbar'
+import { TaskbarProps } from './TaskbarTypes'
 import strings from '../../../infrastructure/localization'
 import { ActionButton, DefaultButton, IIconProps, PrimaryButton } from '@fluentui/react'
 
-const Taskbar = (props: ITaskbar) => {
+const Taskbar = (props: TaskbarProps) => {
 	const GetBack = () => {
 		if (props.canGoBack) {
 			const getBackIcon: IIconProps = { iconName: 'ChevronLeft' }
@@ -43,8 +44,7 @@ const Taskbar = (props: ITaskbar) => {
 					<PrimaryButton
 						onClick={props.createClickEvent}
 						iconProps={_createIcon}
-						text={_createText}
-					/>
+						text={_createText}/>
 				)
 			case 'edit':
 				const saveIcon: IIconProps = { iconName: 'Save' }

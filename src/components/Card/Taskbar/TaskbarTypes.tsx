@@ -1,6 +1,6 @@
 import { IIconProps } from '@fluentui/react'
 
-export interface ITaskbar {
+export interface TaskbarProps {
 	buttons?: any
 	canEdit?: boolean
 	canGoBack?: boolean

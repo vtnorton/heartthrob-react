@@ -4,7 +4,7 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs'
 import * as React from 'react'
 import Card from './Card'
 import Taskbar from './Taskbar/Taskbar'
-import { ITaskbar } from 'interfaces/ITaskbar'
+import { TaskbarProps } from 'components/Card/Taskbar/TaskbarTypes'
 
 const defaultstyle = {
 	padding: '40px',
@@ -13,11 +13,11 @@ const defaultstyle = {
 const stories = storiesOf('Card', module)
 stories.addDecorator(withKnobs)
 
-const taskbarBasic: ITaskbar = {
+const taskbarBasic: TaskbarProps = {
 	canGoBack: true, //boolean('Can get back from taskbar', true)
 }
 
-const taskbarCreate: ITaskbar = {
+const taskbarCreate: TaskbarProps = {
 	canGoBack: true,
 	mode: 'create',
 	createButton: 'Create button content',

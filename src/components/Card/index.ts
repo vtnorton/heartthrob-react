@@ -1,3 +1,5 @@
 import Card from './Card'
+import Taskbar from './Taskbar/Taskbar'
+import { TaskbarProps } from './Taskbar/TaskbarTypes'
 
-export default Card
+export { Card, Taskbar, TaskbarProps }

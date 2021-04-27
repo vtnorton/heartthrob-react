@@ -2,7 +2,7 @@
 import 'heartthrob'
 import * as React from 'react'
 
-import { ITaskbar } from '../../interfaces/ITaskbar'
+import { TaskbarProps } from './Taskbar/TaskbarTypes'
 import { initializeIcons } from '@fluentui/react'
 
 import Shadow from '../../effects/Shadow/Shadow'
@@ -15,7 +15,7 @@ interface Props {
   title?: string
   acrylic?: boolean
   shadow?: string
-  taskbar?: ITaskbar
+  taskbar?: TaskbarProps
 }
 
 const Card = (props: Props): JSX.Element => {
