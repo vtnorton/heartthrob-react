@@ -3,7 +3,7 @@ import { PrimaryButton, Spinner, SpinnerSize } from '@fluentui/react'
 
 import { LoadButtonProps } from './LoadButtonTypes'
 
-const LoadButtonComponent = (props: LoadButtonProps): JSX.Element => {
+const LoadButton = (props: LoadButtonProps): JSX.Element => {
 	if (props.isLoading) {
 		return (
 			<Spinner
@@ -26,4 +26,4 @@ const LoadButtonComponent = (props: LoadButtonProps): JSX.Element => {
 	)
 }
 
-export { LoadButtonComponent }
+export { LoadButton }

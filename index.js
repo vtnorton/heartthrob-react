@@ -1,3 +1,3 @@
-export * from './src/components/Card'
-export * from './src/components/Header'
+export * from './src/components'
+
 export * from './src/extensions/stringExtensions'
