@@ -131,4 +131,4 @@ const PasswordInput = (props: PassowrdInputProps): JSX.Element => {
   )
 }
 
-export default { PasswordInput }
+export { PasswordInput }

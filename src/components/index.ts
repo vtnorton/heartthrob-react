@@ -1,5 +1,4 @@
 export * from './Card/index'
-export * from './Header/Header'
-export * from './Header/HeaderTypes'
+export * from './Header/index'
 export * from './PasswordInput/index'
 export * from './LoadButton/index'
