@@ -17,13 +17,13 @@ const LoadButtonComponent = (props: LoadButtonProps): JSX.Element => {
 	return (
 		<>
 			{props.children}
-			<PrimaryButton 
-				disabled={props.disabled} 
-				text={props.text} 
-				onClick={props.onClick} 
+			<PrimaryButton
+				disabled={props.disabled}
+				text={props.text}
+				onClick={props.onClick}
 				iconProps={props.iconProps} />
 		</>
 	)
 }
 
-export default LoadButtonComponent
+export { LoadButtonComponent }

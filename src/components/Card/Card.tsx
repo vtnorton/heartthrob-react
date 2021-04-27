@@ -7,7 +7,7 @@ import { initializeIcons } from '@fluentui/react'
 
 import Shadow from '../../effects/Shadow/Shadow'
 import Acrylic from '../../effects/Acrylic/Acrylic'
-import Taskbar from './Taskbar/Taskbar'
+import { Taskbar } from './Taskbar/Taskbar'
 
 interface Props {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -30,8 +30,8 @@ const Card = (props: Props): JSX.Element => {
   }
 
   const mountTaskbar = () => {
-    if (!props.taskbar) 
-return null
+    if (!props.taskbar)
+      return null
 
     return (
       <Taskbar
@@ -52,7 +52,7 @@ return null
         editClickEvent={props.taskbar.editClickEvent}
         goBackUrl={props.taskbar.goBackUrl}
         createClickEvent={props.taskbar.createClickEvent}
-        createIcon={props.taskbar.createIcon}/>
+        createIcon={props.taskbar.createIcon} />
     )
   }
 
@@ -85,4 +85,4 @@ return null
   )
 }
 
-export default Card
+export { Card }

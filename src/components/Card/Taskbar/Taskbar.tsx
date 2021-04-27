@@ -44,7 +44,7 @@ const Taskbar = (props: TaskbarProps) => {
 					<PrimaryButton
 						onClick={props.createClickEvent}
 						iconProps={_createIcon}
-						text={_createText}/>
+						text={_createText} />
 				)
 			case 'edit':
 				const saveIcon: IIconProps = { iconName: 'Save' }
@@ -90,4 +90,4 @@ const Taskbar = (props: TaskbarProps) => {
 	)
 }
 
-export default Taskbar
+export { Taskbar }

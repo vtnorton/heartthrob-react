@@ -7,9 +7,9 @@ import { PassowrdInputProps } from './PasswordInputTypes'
 
 const PasswordInput = (props: PassowrdInputProps): JSX.Element => {
   const [passwordMessage, setPasswordMessage] = useState('')
-	const [passwordMessageClass, setPasswordMessageClass] = useState('')
+  const [passwordMessageClass, setPasswordMessageClass] = useState('')
   const [passwordCheckMessage, setPasswordCheckMessage] = useState('')
-	const [passwordCheckMessageClass, setPasswordCheckMessageClass] = useState('')
+  const [passwordCheckMessageClass, setPasswordCheckMessageClass] = useState('')
 
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -21,13 +21,12 @@ const PasswordInput = (props: PassowrdInputProps): JSX.Element => {
       numberCount: number,
       symbolCount: number
 
-		if(!typedPassword)
-		{
-			setPasswordMessage('')
-			return
-		}
-			
-		setPasswordMessageClass('')
+    if (!typedPassword) {
+      setPasswordMessage('')
+      return
+    }
+
+    setPasswordMessageClass('')
     if (typedPassword.length < 8) {
       setPasswordMessageClass('short')
       setPasswordMessage('A senha necessita ter pelo menos 8 caracteres.')
@@ -38,19 +37,19 @@ const PasswordInput = (props: PassowrdInputProps): JSX.Element => {
       symbolCount = (typedPassword.match(/\W/g) || []).length
 
       if (capsCount < 1) {
-				setPasswordMessageClass('weak')
+        setPasswordMessageClass('weak')
         message = 'A senha precisa conter ao menos uma letra em maiúsculo.'
       } else if (smallCount < 1) {
-				setPasswordMessageClass('weak')
+        setPasswordMessageClass('weak')
         message = 'A senha precisa conter ao menos uma letra em minúsculo.'
       } else if (numberCount < 1) {
-				setPasswordMessageClass('weak')
+        setPasswordMessageClass('weak')
         message = 'A senha precisa conter ao menos um número.'
       } else if (symbolCount < 1) {
-				setPasswordMessageClass('medium')
+        setPasswordMessageClass('medium')
         message = 'A senha precisa conter ao menos um caracter especial.'
       } else {
-				setPasswordMessageClass('strong')
+        setPasswordMessageClass('strong')
         setPasswordMessage('Sua senha está forte.')
       }
 
@@ -62,48 +61,46 @@ const PasswordInput = (props: PassowrdInputProps): JSX.Element => {
     typedPassword: string,
     typedConfirmPassword: string
   ) => {
-		setPasswordCheckMessageClass('')
+    setPasswordCheckMessageClass('')
 
-		if(!typedConfirmPassword)
-		{
-			setPasswordCheckMessage('')
-			return
-		}
+    if (!typedConfirmPassword) {
+      setPasswordCheckMessage('')
+      return
+    }
 
-		if(typedPassword === '')
-		{
-			setPasswordCheckMessage('Você ainda não digitou a senha para confirmar ela.')
-			return
-		}
+    if (typedPassword === '') {
+      setPasswordCheckMessage('Você ainda não digitou a senha para confirmar ela.')
+      return
+    }
 
 
     if (typedPassword !== typedConfirmPassword) {
       setPasswordCheckMessage('As senhas estão diferentes, por favor, tente novamente.')
     } else {
-			setPasswordCheckMessageClass('strong')
+      setPasswordCheckMessageClass('strong')
       setPasswordCheckMessage('As senhas estão iguais.')
-			return true
+      return true
     }
 
-		return false
+    return false
   }
 
   const onPasswordChange = (element: FormEvent<HTMLTextAreaElement>) => {
     const value = (element.target as HTMLTextAreaElement).value
     setPassword(value)
     checkPasswordStrength(value)
-		if(confirmPassword)
-			checkPasswordMatch(value, confirmPassword)
+    if (confirmPassword)
+      checkPasswordMatch(value, confirmPassword)
   }
 
   const onConfirmPasswordChange = (element: FormEvent<HTMLTextAreaElement>) => {
     const value = (element.target as HTMLTextAreaElement).value
     setConfirmPassword(value)
 
-		const doesItMatch = checkPasswordMatch(password, value)
+    const doesItMatch = checkPasswordMatch(password, value)
 
-		if(doesItMatch)
-			props.onSubmitMessage(password)
+    if (doesItMatch)
+      props.onSubmitMessage(password)
   }
 
   return (
@@ -114,10 +111,10 @@ const PasswordInput = (props: PassowrdInputProps): JSX.Element => {
           label='Senha'
           canRevealPassword
           type='password'
-          onChange={onPasswordChange}/>
+          onChange={onPasswordChange} />
         <span className={passwordMessage ? 'validator ' + passwordMessageClass : ''}>
-					{passwordMessage}
-				</span>
+          {passwordMessage}
+        </span>
       </div>
       <div className='col-md-6 col-sm-6'>
         <TextField
@@ -125,13 +122,13 @@ const PasswordInput = (props: PassowrdInputProps): JSX.Element => {
           label='Confirmar senha'
           canRevealPassword
           type='password'
-          onChange={onConfirmPasswordChange}/>
+          onChange={onConfirmPasswordChange} />
         <span className={passwordCheckMessage ? 'validator ' + passwordCheckMessageClass : ''}>
-					{passwordCheckMessage}
-				</span>
+          {passwordCheckMessage}
+        </span>
       </div>
     </div>
   )
 }
 
-export default PasswordInput
+export default { PasswordInput }

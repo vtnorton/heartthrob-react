@@ -59,8 +59,8 @@ const Header = ({ props }: { props: HeaderProps }): JSX.Element => {
     }
 
     const selectLogo = () => {
-      if (logo === undefined) 
-return logoAsString()
+      if (logo === undefined)
+        return logoAsString()
 
       return logoAsImage()
     }
@@ -83,4 +83,4 @@ return logoAsString()
   )
 }
 
-export default Header
+export { Header }
