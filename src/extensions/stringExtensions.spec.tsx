@@ -1,4 +1,4 @@
-import { getIntials, removeSpecialCharacters } from './stringExtensions'
+import { getIntials, notInformedTextTreatment, removeSpecialCharacters } from './stringExtensions'
 
 describe('Remove special characters', () => {
 	it('should return string with no special characters', () => {
@@ -36,5 +36,22 @@ describe('Get initials', () => {
 		const result = getIntials(initial)
 
 		expect(result).not.toBe(final)
+	})
+
+	describe('notInformadTreatment', () => {
+		it('should return NotInformed text when no data is passed', () => {
+			const values = [null, undefined, '']
+			values.forEach(element => {
+				const result = notInformedTextTreatment(element)
+				expect(result).toBe('Não informado.')
+			})
+		})
+
+		it('should return text when it is passed', () => {
+			const value = 'Lorem ipsum dolor siet'
+			const result = notInformedTextTreatment(value)
+			
+			expect(result).toBe(value)
+		})
 	})
 })

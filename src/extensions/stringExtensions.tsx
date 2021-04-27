@@ -17,14 +17,14 @@ export const getIntials = (value: string): string => {
 	return value[0] + value[value.length - 1]
 }
 
-export const notInformedDateTreatment = (date: Date): string => {
-	if(date === undefined || date.toString() === '0001-01-01T00:00:00' )
+export const notInformedDateTreatment = (date: Date | null | undefined): string => {
+	if(date === undefined || date?.toString() === '0001-01-01T00:00:00' )
 		return 'Não informado.'
 		
-	return new Date(date).toLocaleDateString()
+	return new Date(date as Date).toLocaleDateString()
 }
 
-export const notInformedTextTreatment = (text: string): string => {
+export const notInformedTextTreatment = (text: string | null | undefined): string => {
 	if (text === null || text === '' || text === undefined) 
 		return 'Não informado.'
 	
