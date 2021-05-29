@@ -2,8 +2,9 @@
 import { storiesOf } from '@storybook/react'
 import { withKnobs, text, boolean } from '@storybook/addon-knobs'
 import * as React from 'react'
-import Card from './Card'
-import Taskbar from './Taskbar/Taskbar'
+
+import { Card } from './Card'
+import { Taskbar } from './Taskbar/Taskbar'
 import { TaskbarProps } from 'components/Card/Taskbar/TaskbarTypes'
 
 const defaultstyle = {

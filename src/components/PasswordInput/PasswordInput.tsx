@@ -85,7 +85,7 @@ const PasswordInput = (props: PassowrdInputProps): JSX.Element => {
     return false
   }
 
-  const onPasswordChange = (element: FormEvent<HTMLTextAreaElement>) => {
+  const onPasswordChange = (element: FormEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     const value = (element.target as HTMLTextAreaElement).value
     setPassword(value)
     checkPasswordStrength(value)
@@ -93,7 +93,7 @@ const PasswordInput = (props: PassowrdInputProps): JSX.Element => {
       checkPasswordMatch(value, confirmPassword)
   }
 
-  const onConfirmPasswordChange = (element: FormEvent<HTMLTextAreaElement>) => {
+  const onConfirmPasswordChange = (element: FormEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     const value = (element.target as HTMLTextAreaElement).value
     setConfirmPassword(value)
 

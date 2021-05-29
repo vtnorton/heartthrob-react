@@ -2,7 +2,7 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import { useState } from 'react'
-import PasswordInput from './PasswordInput'
+import { PasswordInput } from './PasswordInput'
 
 const defaultstyle = {
   padding: '40px',
@@ -11,13 +11,13 @@ const defaultstyle = {
 const stories = storiesOf('PasswordInput', module)
 
 stories.add('Basic usage', () => {
-	const [password, setPassword] = useState('')
+  const [password, setPassword] = useState('')
 
   return (
     <div style={defaultstyle}>
       <PasswordInput onSubmitMessage={(e) => setPassword(e)} />
 
-			<br />
+      <br />
 			A senha é: {password}
     </div>
   )
