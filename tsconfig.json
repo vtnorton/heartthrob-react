@@ -19,7 +19,8 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": false,
     "declaration": true,
-    "declarationDir": "build",
+    "declarationDir": "dist/dts",
+    "emitDeclarationOnly": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
