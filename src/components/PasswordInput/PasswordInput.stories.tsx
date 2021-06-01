@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { storiesOf } from '@storybook/react'
-import * as React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { PasswordInput } from './PasswordInput'
 
 const defaultstyle = {

@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { FormEvent, useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 import { TextField } from '@fluentui/react'
 
 import 'heartthrob'
