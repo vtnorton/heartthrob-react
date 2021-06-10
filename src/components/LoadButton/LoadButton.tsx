@@ -1,5 +1,5 @@
-import * as React from 'react'
 import { PrimaryButton, Spinner, SpinnerSize } from '@fluentui/react'
+import React from 'react'
 
 import { LoadButtonProps } from './LoadButtonTypes'
 
