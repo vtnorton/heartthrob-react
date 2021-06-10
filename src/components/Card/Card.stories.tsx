@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { storiesOf } from '@storybook/react'
-import { withKnobs, text, boolean } from '@storybook/addon-knobs'
 import * as React from 'react'
 
 import { Card } from './Card'
@@ -12,7 +11,6 @@ const defaultstyle = {
 }
 
 const stories = storiesOf('Card', module)
-stories.addDecorator(withKnobs)
 
 const taskbarBasic: TaskbarProps = {
 	canGoBack: true, //boolean('Can get back from taskbar', true)
@@ -27,7 +25,7 @@ const taskbarCreate: TaskbarProps = {
 stories.add('Basic usage', () => {
 	return (
 		<div style={defaultstyle}>
-			<Card acrylic={boolean('Use acrylic design', false)} title={text('Card title', 'Hello world')}>
+			<Card acrylic={true} title={'Hello world'}>
 				Teste
 			</Card>
 		</div>
@@ -37,7 +35,7 @@ stories.add('Basic usage', () => {
 stories.add('With taskbar', () => {
 	return (
 		<div style={defaultstyle}>
-			<Card acrylic={boolean('Use acrylic design', false)} title={text('Card title', 'Hello world')} taskbar={taskbarBasic}>
+			<Card acrylic={false} title={'Hello world'} taskbar={taskbarBasic}>
 				<label>
 					Name
 					<input type='text' placeholder='Vitor N.' />
@@ -50,7 +48,7 @@ stories.add('With taskbar', () => {
 stories.add('With taskbar on create mode', () => {
 	return (
 		<div style={defaultstyle}>
-			<Card title={text('Card title', 'Hello world')} taskbar={taskbarCreate}>
+			<Card title={'Hello world'} taskbar={taskbarCreate}>
 				<label>
 					Name
 					<input type='text' placeholder='Vitor N.' />
@@ -63,16 +61,16 @@ stories.add('With taskbar on create mode', () => {
 stories.add('With taskbar on edit mode', () => {
 	return (
 		<div style={defaultstyle}>
-			<Card title={text('Card title', 'Hello world')}>
+			<Card title={'Hello world'}>
 				<label>
 					Name
 					<input type='text' placeholder='Vitor N.' />
 				</label>
 				<Taskbar
 					mode='edit'
-					deleteButton={text('Delete button content', '')}
-					saveButton={text('Save button content', '')}
-					canGoBack={boolean('Can get back from taskbar', true)}></Taskbar>
+					deleteButton={''}
+					saveButton={''}
+					canGoBack={true}></Taskbar>
 			</Card>
 		</div>
 	)
@@ -81,17 +79,17 @@ stories.add('With taskbar on edit mode', () => {
 stories.add('With taskbar on details mode', () => {
 	return (
 		<div style={defaultstyle}>
-			<Card title={text('Card title', 'Hello world')}>
+			<Card title={'Hello world'}>
 				<label>
 					Name
 					<input type='text' placeholder='Vitor N.' />
 				</label>
 				<Taskbar
 					mode='details'
-					deleteButton={text('Delete button content', '')}
-					editButton={text('Edit button content', '')}
-					canGoBack={boolean('Can get back from taskbar', true)}
-					canEdit={boolean('Can edit content', true)}></Taskbar>
+					deleteButton={''}
+					editButton={''}
+					canGoBack={true}
+					canEdit={true}></Taskbar>
 			</Card>
 		</div>
 	)

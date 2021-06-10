@@ -6,7 +6,7 @@
     "lib": ["es5", "es6", "es7", "es2015", "es2017", "dom"],
     "sourceMap": true,
     "allowJs": false,
-    "jsx": "react",
+    "jsx": "preserve",
     "moduleResolution": "node",
     "rootDirs": ["src"],
     "baseUrl": "src",
@@ -23,8 +23,10 @@
     "emitDeclarationOnly": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
-  "include": ["src/**/*", "index.ts", "src/index.ts", "src/index.ts"],
+  "include": ["src/**/*", "main.ts"],
   "exclude": ["node_modules", "build", "scripts", "**/*.spec.ts"]
 }
