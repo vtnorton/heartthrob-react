@@ -3,7 +3,7 @@ import { MouseEventHandler } from 'react'
 
 export interface LoadButtonProps {
 	isLoading: boolean,
-	iconProps: IIconProps,
+	iconProps?: IIconProps,
 	onClick: MouseEventHandler<any>,
 	text: string,
 	loadingText: string,

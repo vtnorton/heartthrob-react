@@ -1,11 +1,17 @@
 import * as React from 'react'
-import { PrimaryButton } from '@fluentui/react'
+import { PrimaryButton, Spinner, SpinnerSize } from '@fluentui/react'
 
 import { LoadButtonProps } from './LoadButtonTypes'
 
 const LoadButton = (props: LoadButtonProps): JSX.Element => {
 	if (props.isLoading) {
-		return (<h1>ojiaoiaj</h1>)
+		return (
+			<Spinner
+				size={SpinnerSize.medium}
+				label={props.loadingText}
+				ariaLive='assertive'
+				labelPosition='right' />
+		)
 	}
 
 	return (
@@ -14,7 +20,7 @@ const LoadButton = (props: LoadButtonProps): JSX.Element => {
 			<PrimaryButton
 				disabled={props.disabled}
 				text={props.text}
-				onClick={props.onClick}
+				//onClick={props.onClick}
 				iconProps={props.iconProps} />
 		</>
 	)
