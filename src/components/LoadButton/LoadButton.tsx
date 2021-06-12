@@ -1,17 +1,11 @@
-import { PrimaryButton, Spinner, SpinnerSize } from '@fluentui/react'
-import React from 'react'
+import * as React from 'react'
+import { PrimaryButton } from '@fluentui/react'
 
 import { LoadButtonProps } from './LoadButtonTypes'
 
 const LoadButton = (props: LoadButtonProps): JSX.Element => {
 	if (props.isLoading) {
-		return (
-			<Spinner
-				size={SpinnerSize.medium}
-				label={props.loadingText}
-				ariaLive='assertive'
-				labelPosition='right' />
-		)
+		return (<h1>ojiaoiaj</h1>)
 	}
 
 	return (
