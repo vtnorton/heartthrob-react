@@ -16,51 +16,54 @@
     "url": "git+https://github.com/vtnorton/heartthrob-react.git"
   },
   "keywords": [
-    "heartthrob"
+    "heartthrob",
+    "heartthrob-react"
   ],
   "author": "Vitor Norton",
   "license": "MIT",
   "peerDependencies": {
-    "heartthrob": "^3.0.0-beta.13",
-    "@fluentui/react": "^8.14.2",
+    "@fluentui/react": "^8.20.2",
+    "heartthrob": "^2.0.8",
     "localized-strings": "^0.2.4"
   },
   "devDependencies": {
+    "@rollup/pluginutils": "^4.1.0",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@rollup/plugin-typescript": "^8.2.1",
-    "@storybook/addon-controls": "6.3.0-rc.0",
-    "@storybook/addon-essentials": "6.3.0-rc.0",
-    "@storybook/react": "6.3.0-rc.0",
+    "@storybook/addon-controls": "^6.3.0",
+    "@storybook/addon-essentials": "^6.3.0",
+    "@storybook/react": "^6.3.0",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^14.17.4",
     "@types/react": "^16.14.2",
     "@types/react-dom": "^16.9.10",
-    "@types/jest": "^26.0.23",
-    "@types/node": "^14.14.44",
-    "@typescript-eslint/eslint-plugin": "^4.22.1",
-    "@typescript-eslint/parser": "^4.22.1",
-    "eslint": "^7.25.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "eslint": "^7.29.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-editorconfig": "^3.0.1",
-    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "html-webpack-plugin": "^5.3.1",
+    "html-webpack-plugin": "^5.3.2",
     "jest": "^26.6.3",
+    "postcss": "^8.3.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "postcss": "^8.3.1",
-    "rollup": "^2.51.1",
+    "rollup": "^2.52.3",
     "rollup-plugin-dts": "^3.0.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
     "ts-jest": "^26.5.6",
     "ts-loader": "^9.2.3",
-    "typescript": "^4.3.2",
+    "typescript": "^4.3.4",
     "webpack": "4"
   },
   "bugs": {
-    "url": "https://github.com/vtnorton/heartthrob-react/issues"
+    "url": "https://github.com/vtnorton/heartthrob-fundamental-sample/issues",
+    "email": "contato@vtnorton.com"
   },
-  "homepage": "https://github.com/vtnorton/heartthrob-react#readme"
+  "homepage": "https://heartthrob.vtnorton.com"
 }
