@@ -1,5 +1,5 @@
 import React, { FormEvent, useState } from 'react'
-import { TextField } from '@fluentui/react'
+import { TextField } from '@fluentui/react/lib/components/TextField/TextField'
 
 import 'heartthrob'
 import { PassowrdInputProps } from './PasswordInputTypes'
