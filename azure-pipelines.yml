@@ -85,7 +85,7 @@ stages:
           - task: ThatBlokeCalledJay.thatblokecalledjay-setjsonproperty.SetJsonProperty.SetJsonProperty@1
             displayName: 'Set version name'
             inputs:
-              JsonFile: '$(System.DefaultWorkingDirectory)'
+              JsonFile: '$(System.DefaultWorkingDirectory)/drop'
               PropertyPath: version
               PropertyValue: '$(version)'
           
@@ -93,7 +93,7 @@ stages:
             displayName: 'Publish new version'
             inputs:
               command: custom
-              workingDir: '$(System.DefaultWorkingDirectory)'
+              workingDir: '$(System.DefaultWorkingDirectory)/drop'
               verbose: true
               customCommand: 'publish --tag beta'
               customEndpoint: npm
