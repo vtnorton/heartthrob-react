@@ -61,7 +61,7 @@ stages:
           - task: PublishBuildArtifacts@1
             displayName: 'Publish build artifacts'
             inputs:
-              PathtoPublish: "$(System.DefaultWorkingDirectory)/dist"
+              PathtoPublish: "$(System.DefaultWorkingDirectory)/build"
               ArtifactName: "drop"
               publishLocation: "Container"
 
