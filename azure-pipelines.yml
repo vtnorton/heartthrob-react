@@ -82,11 +82,10 @@ stages:
               artifactName: "drop"
               downloadPath: "$(Build.ArtifactStagingDirectory)"
 
-          - task: ThatBlokeCalledJay.thatblokecalledjay-setjsonproperty.SetJsonProperty.SetJsonProperty@1
-            displayName: 'Set version name'
+          - task: SetJsonProperty@1
             inputs:
-              JsonFile: '$(System.DefaultWorkingDirectory)/drop'
-              PropertyPath: version
+              JsonFile: '$(System.DefaultWorkingDirectory)/drop/package.json'
+              PropertyPath: 'version'
               PropertyValue: '$(version)'
           
           - task: Npm@1
