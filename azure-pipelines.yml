@@ -84,7 +84,7 @@ stages:
 
           - task: SetJsonProperty@1
             inputs:
-              JsonFile: '$(System.DefaultWorkingDirectory)/drop/package.json'
+              JsonFile: '$(System.ArtifactStagingDirectory)/drop/package.json'
               PropertyPath: 'version'
               PropertyValue: '$(version)'
           
@@ -92,7 +92,7 @@ stages:
             displayName: 'Publish new version'
             inputs:
               command: custom
-              workingDir: '$(System.DefaultWorkingDirectory)/drop'
+              workingDir: '$(System.ArtifactStagingDirectory)/drop'
               verbose: true
               customCommand: 'publish --tag beta'
               customEndpoint: npm
