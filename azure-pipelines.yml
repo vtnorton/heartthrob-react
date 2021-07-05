@@ -11,12 +11,12 @@ pool:
   vmImage: windows-latest
 
 variables:
-  currentVersion: '1.0'
+  currentVersion: '3.0'
   betaVersion: '3.0'
   ${{if eq(variables['Build.SourceBranch'], 'refs/heads/main')}}:
     version: $[format('{0}.{1}', variables['currentVersion'], counter(variables['currentVersion'], 0))]
   ${{if eq(variables['Build.SourceBranch'], 'refs/heads/develop')}}:
-    version: $[format('{0}.{1}', variables['betaVersion'], counter(variables['betaVersion'], 30))]
+    version: $[format('{0}.0-beta.{1}', variables['betaVersion'], counter(variables['betaVersion'], 30))]
 
 name: $(version)
 
@@ -58,6 +58,13 @@ stages:
                 .vs
                 .git
 
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish build artifacts'
+            inputs:
+              PathtoPublish: "$(System.DefaultWorkingDirectory)/dist"
+              ArtifactName: "drop"
+              publishLocation: "Container"
+
   - stage: release
     displayName: 'Release framework'
     dependsOn: build
@@ -67,6 +74,14 @@ stages:
         displayName: 'Release beta version'
         condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop')) 
         steps:
+          - task: DownloadBuildArtifacts@0
+            displayName: 'Download build artifacts'
+            inputs:
+              buildType: "current"
+              downloadType: "single"
+              artifactName: "drop"
+              downloadPath: "$(Build.ArtifactStagingDirectory)"
+
           - task: ThatBlokeCalledJay.thatblokecalledjay-setjsonproperty.SetJsonProperty.SetJsonProperty@1
             displayName: 'Set version name'
             inputs:
