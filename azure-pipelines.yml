@@ -22,7 +22,7 @@ variables:
   ${{if and(ne(variables['Build.SourceBranch'], 'refs/heads/develop'), ne(variables['Build.SourceBranch'], 'refs/heads/main'))}}:
     buildName: $(Date:yyyyMMdd)$(Rev:.r)
 
-name: $(buildName)
+name: $(variables['version'])
 
 stages:
   - stage: build
