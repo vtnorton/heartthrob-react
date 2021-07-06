@@ -17,8 +17,12 @@ variables:
     version: $[format('{0}.{1}', variables['currentVersion'], counter(variables['currentVersion'], 0))]
   ${{if eq(variables['Build.SourceBranch'], 'refs/heads/develop')}}:
     version: $[format('{0}.0-beta.{1}', variables['betaVersion'], counter(variables['betaVersion'], 30))]
+  ${{if or(eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main'))}}:
+    buildName: $(version)
+  ${{if and(ne(variables['Build.SourceBranch'], 'refs/heads/develop'), ne(variables['Build.SourceBranch'], 'refs/heads/main'))}}:
+    buildName: $(Date:yyyyMMdd)$(Rev:.r)
 
-name: $(version)
+name: $(buildName)
 
 stages:
   - stage: build
@@ -27,11 +31,24 @@ stages:
       - job: build
         displayName: 'Build framework'
         steps:
+          - task: NodeTool@0
+            displayName: "Install Node"
+            inputs:
+              versionSpec: 16.4.2
+
+          - task: UsePythonVersion@0
+            displayName: 'Preparing enviroment'
+            inputs:
+              versionSpec: '2.x'
+              addToPath: true
+              architecture: 'x64'
+              
           - task: Npm@1
             displayName: 'Install dependencies'
             inputs:
+              command: 'custom'
               workingDir: '$(System.DefaultWorkingDirectory)'
-              verbose: true
+              customCommand: 'install --legacy-peer-deps'
 
           - task: Npm@1
             displayName: 'Test framework'

@@ -1,12 +1,6 @@
 import * as React from 'react'
 
-interface Props {
-  children: any
-  main?: string
-  acrylic?: boolean
-}
-
-const AcrylicEffect = ({ children, main, acrylic }: Props) => {
+const AcrylicEffect = ({ children, main, acrylic }: AcrylicProps) => {
   const acrylicClass = acrylic ? 'acrylic' : ''
   const mainClass = main ? main : ''
 

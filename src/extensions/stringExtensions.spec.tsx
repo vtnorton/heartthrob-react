@@ -45,7 +45,7 @@ describe('notInformadTreatment', () => {
 		const values = [null, undefined, '']
 		values.forEach(element => {
 			const result = notInformedTextTreatment(element)
-			expect(result).toBe('Não informado.')
+			expect(result).toBe('Not informed.')
 		})
 	})
 

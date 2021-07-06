@@ -1,3 +1,5 @@
+import strings from '../infrastructure/localization'
+
 export const removeSpecialCharacters = (text: string): string => {
 	if (text)
 		return text
@@ -21,14 +23,14 @@ export const getIntials = (value: string): string => {
 
 export const notInformedDateTreatment = (date: Date | null | undefined): string => {
 	if (date === undefined || date?.toString() === '0001-01-01T00:00:00')
-		return 'Não informado.'
+		return strings.getString('notInformed')
 
 	return new Date(date as Date).toLocaleDateString()
 }
 
 export const notInformedTextTreatment = (text: string | null | undefined): string => {
 	if (text === null || text === '' || text === undefined)
-		return 'Não informado.'
+		return strings.getString('notInformed')
 
 	return text
 }

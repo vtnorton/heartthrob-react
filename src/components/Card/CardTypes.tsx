@@ -1,4 +1,12 @@
-import { IIconProps } from '@fluentui/react'
+import { IIconProps } from "@fluentui/react/lib/Icon";
+
+export interface CardProps {
+	children: any
+	title?: string
+	acrylic?: boolean
+	shadow?: string
+	taskbar?: TaskbarProps
+}
 
 export interface TaskbarProps {
 	buttons?: any

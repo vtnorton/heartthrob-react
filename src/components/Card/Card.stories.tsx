@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
 import { Card } from './Card'
+import { TaskbarProps } from './CardTypes'
 import { Taskbar } from './Taskbar/Taskbar'
-import { TaskbarProps } from 'components/Card/Taskbar/TaskbarTypes'
 
 const defaultstyle = {
 	padding: '40px',
