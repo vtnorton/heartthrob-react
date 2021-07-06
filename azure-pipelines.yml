@@ -18,7 +18,10 @@ variables:
   ${{if eq(variables['Build.SourceBranch'], 'refs/heads/develop')}}:
     version: $[format('{0}.0-beta.{1}', variables['betaVersion'], counter(variables['betaVersion'], 30))]
 
+${{if or(eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main'))}}:
 name: $(version)
+${{if and(ne(variables['Build.SourceBranch'], 'refs/heads/develop'), ne(variables['Build.SourceBranch'], 'refs/heads/main'))}}:
+name: $(Date:yyyyMMdd)$(Rev:.r)
 
 stages:
   - stage: build
@@ -27,6 +30,11 @@ stages:
       - job: build
         displayName: 'Build framework'
         steps:
+          - task: NodeTool@0
+            displayName: "Install Node"
+            inputs:
+              versionSpec: 16.4.2
+
           - task: Npm@1
             displayName: 'Install dependencies'
             inputs:
