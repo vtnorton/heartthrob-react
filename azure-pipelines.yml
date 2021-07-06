@@ -18,11 +18,11 @@ variables:
   ${{if eq(variables['Build.SourceBranch'], 'refs/heads/develop')}}:
     version: $[format('{0}.0-beta.{1}', variables['betaVersion'], counter(variables['betaVersion'], 30))]
   ${{if or(eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main')) }}:
-    buildName: $(version)
+    buildName: ${{ variables.version }}
   ${{if and(ne(variables['Build.SourceBranch'], 'refs/heads/develop'), ne(variables['Build.SourceBranch'], 'refs/heads/main')) }}:
     buildName: $(Date:yyyyMMdd)$(Rev:.r)
 
-name: $(variables.version)
+name: $(buildName)
 
 stages:
   - stage: build
