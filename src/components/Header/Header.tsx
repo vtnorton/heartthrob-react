@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 import {
   Icon,
   Persona,
@@ -10,6 +9,7 @@ import {
 import 'heartthrob'
 import { HeaderProps, MenuItemType } from './HeaderTypes'
 import { getIntials } from './../../extensions/stringExtensions'
+import strings from './../../infrastructure/localization'
 
 const Header = ({ props }: { props: HeaderProps }): JSX.Element => {
   initializeIcons()
@@ -50,7 +50,7 @@ const Header = ({ props }: { props: HeaderProps }): JSX.Element => {
 
   function renderLogo(systemName: string, logo?: ImageBitmap) {
     const logoAsImage = () => {
-      const altImage = `Logo ${systemName}`
+      const altImage = strings.getLanguage() === 'en' ? `${systemName}'s logo` : `Logo ${systemName}`
       return <img src='~/images/logo-white.png' alt={altImage} />
     }
 

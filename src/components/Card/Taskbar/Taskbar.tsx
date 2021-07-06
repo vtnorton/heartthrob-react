@@ -1,10 +1,8 @@
-/* eslint-disable no-case-declarations */
-/* eslint-disable no-unused-vars */
-import 'heartthrob'
 import * as React from 'react'
-import { TaskbarProps } from './TaskbarTypes'
 import strings from '../../../infrastructure/localization'
+
 import { ActionButton, DefaultButton, IIconProps, PrimaryButton } from '@fluentui/react'
+import { TaskbarProps } from '../CardTypes'
 
 const Taskbar = (props: TaskbarProps) => {
 	const GetBack = () => {

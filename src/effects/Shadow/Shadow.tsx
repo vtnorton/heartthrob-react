@@ -1,12 +1,6 @@
 import * as React from 'react'
 
-interface Props {
-  children?: any
-  main?: string
-  shadow?: string
-}
-
-const ShadowEffect = ({ children, main, shadow }: Props) => {
+const ShadowEffect = ({ children, main, shadow }: ShadowProps) => {
   const mainClass = main ? main : ''
 
   const getShadowClass = () => {

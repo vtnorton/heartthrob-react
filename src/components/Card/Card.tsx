@@ -1,24 +1,15 @@
 /* eslint-disable no-unused-vars */
 import 'heartthrob'
 import * as React from 'react'
-
-import { TaskbarProps } from './Taskbar/TaskbarTypes'
 import { initializeIcons } from '@fluentui/react'
 
 import Shadow from '../../effects/Shadow/Shadow'
 import Acrylic from '../../effects/Acrylic/Acrylic'
 import { Taskbar } from './Taskbar/Taskbar'
+import { CardProps } from './CardTypes'
 
-interface Props {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  children: any
-  title?: string
-  acrylic?: boolean
-  shadow?: string
-  taskbar?: TaskbarProps
-}
 
-const Card = (props: Props): JSX.Element => {
+const Card = (props: CardProps): JSX.Element => {
   initializeIcons()
   const cardTitle = () => {
     return props.title ? (

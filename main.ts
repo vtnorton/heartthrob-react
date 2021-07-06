@@ -10,7 +10,7 @@ module.exports = {
     },
   },
   core: {
-    builder: 'webpack4',
+    builder: "webpack5",
   },
   features: {
     postcss: false,
