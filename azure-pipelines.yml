@@ -35,12 +35,20 @@ stages:
             displayName: "Install Node"
             inputs:
               versionSpec: 16.4.2
+          
+          - task: Npm@1
+            displayName: 'Preparing enviroment'
+            inputs:
+              command: 'custom'
+              workingDir: '$(System.DefaultWorkingDirectory)'
+              customCommand: 'uninstall -g node-sass'
 
           - task: Npm@1
             displayName: 'Install dependencies'
             inputs:
+              command: 'custom'
               workingDir: '$(System.DefaultWorkingDirectory)'
-              verbose: true
+              customCommand: 'install --legacy-peer-deps'
 
           - task: Npm@1
             displayName: 'Test framework'
