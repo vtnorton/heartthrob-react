@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
+import { IIconProps } from '@fluentui/react'
 import { storiesOf } from '@storybook/react'
+import { ActionButtonProps } from 'components/ActionButtons'
 import * as React from 'react'
 
 import { Card } from './Card'
@@ -40,6 +42,31 @@ stories.add('With taskbar', () => {
 					Name
 					<input type='text' placeholder='Vitor N.' />
 				</label>
+			</Card>
+		</div>
+	)
+})
+
+stories.add('With action buttons', () => {
+	const deleteIcon: IIconProps = { iconName: 'Delete' }
+	const createIcon: IIconProps = { iconName: 'Add' }
+	const anotherIcon: IIconProps = { iconName: 'Play' }
+	const clickDefault = () => {
+		alert('teste')
+	}
+
+	const defaultProps: ActionButtonProps = {
+		itens: [
+			{ label: 'Sample', icon: createIcon, onClick: clickDefault },
+			{ label: 'Sample', icon: anotherIcon, onClick: clickDefault },
+			{ label: 'Primary', icon: deleteIcon, onClick: clickDefault, primary: true },
+		],
+	}
+
+	return (
+		<div style={defaultstyle}>
+			<Card acrylic={false} title={'Hello world'} actionButtons={defaultProps} >
+				<p>Lorem ipsum</p>
 			</Card>
 		</div>
 	)

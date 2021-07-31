@@ -7,17 +7,40 @@ import Shadow from '../../effects/Shadow/Shadow'
 import Acrylic from '../../effects/Acrylic/Acrylic'
 import { Taskbar } from './Taskbar/Taskbar'
 import { CardProps } from './CardTypes'
+import { ActionButton } from './../ActionButtons/index'
 
 
 const Card = (props: CardProps): JSX.Element => {
   initializeIcons()
   const cardTitle = () => {
-    return props.title ? (
-      <>
-        <h4>{props.title}</h4>
-        <hr />
-      </>
-    ) : null
+    if (props.title) {
+      if (props.actionButtons)
+        return (
+          <>
+            <div className='left' style={{
+              marginTop: 5,
+            }}>
+              <h4>{props.title}</h4>
+            </div>
+            <div className='right' style={{
+              marginTop: -10,
+            }}>
+              <ActionButton props={props.actionButtons} />
+            </div>
+            <div className='clear'></div>
+            <hr style={{ marginTop: 0 }} />
+          </>
+        )
+
+      return (
+        <>
+          <h4>{props.title}</h4>
+          <hr />
+        </>
+      )
+    }
+
+    return null
   }
 
   const mountTaskbar = () => {
