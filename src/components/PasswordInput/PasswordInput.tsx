@@ -1,5 +1,5 @@
 import React, { FormEvent, useState } from 'react'
-import { TextField } from '@fluentui/react/lib/components/TextField/TextField'
+import { TextField } from '@fluentui/react/lib/TextField'
 
 import 'heartthrob'
 import strings from '../../infrastructure/localization'

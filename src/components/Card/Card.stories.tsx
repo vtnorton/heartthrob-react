@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { IIconProps } from '@fluentui/react'
-import { storiesOf } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ActionButtonProps } from 'components/ActionButtons'
 import * as React from 'react'
 
@@ -12,8 +12,6 @@ const defaultstyle = {
 	padding: '40px',
 }
 
-const stories = storiesOf('Card', module)
-
 const taskbarBasic: TaskbarProps = {
 	canGoBack: true, //boolean('Can get back from taskbar', true)
 }
@@ -24,7 +22,7 @@ const taskbarCreate: TaskbarProps = {
 	createButton: 'Create button content',
 }
 
-stories.add('Basic usage', () => {
+const _basic: ComponentStory<typeof Card> = () => {
 	return (
 		<div style={defaultstyle}>
 			<Card acrylic={true} title={'Hello world'}>
@@ -32,9 +30,9 @@ stories.add('Basic usage', () => {
 			</Card>
 		</div>
 	)
-})
+}
 
-stories.add('With taskbar', () => {
+const _withTaskBar: ComponentStory<typeof Card> = () => {
 	return (
 		<div style={defaultstyle}>
 			<Card acrylic={false} title={'Hello world'} taskbar={taskbarBasic}>
@@ -45,9 +43,9 @@ stories.add('With taskbar', () => {
 			</Card>
 		</div>
 	)
-})
+}
 
-stories.add('With action buttons', () => {
+const _withActionButtons: ComponentStory<typeof Card> = () => {
 	const deleteIcon: IIconProps = { iconName: 'Delete' }
 	const createIcon: IIconProps = { iconName: 'Add' }
 	const anotherIcon: IIconProps = { iconName: 'Play' }
@@ -70,9 +68,9 @@ stories.add('With action buttons', () => {
 			</Card>
 		</div>
 	)
-})
+}
 
-stories.add('With taskbar on create mode', () => {
+const _withTaskbarCreateMode: ComponentStory<typeof Card> = () => {
 	return (
 		<div style={defaultstyle}>
 			<Card title={'Hello world'} taskbar={taskbarCreate}>
@@ -83,9 +81,9 @@ stories.add('With taskbar on create mode', () => {
 			</Card>
 		</div>
 	)
-})
+}
 
-stories.add('With taskbar on edit mode', () => {
+const _withTaskbarEditMode: ComponentStory<typeof Card> = () => {
 	return (
 		<div style={defaultstyle}>
 			<Card title={'Hello world'}>
@@ -101,9 +99,9 @@ stories.add('With taskbar on edit mode', () => {
 			</Card>
 		</div>
 	)
-})
+}
 
-stories.add('With taskbar on details mode', () => {
+const _withTaskbarDetailsMode: ComponentStory<typeof Card> = () => {
 	return (
 		<div style={defaultstyle}>
 			<Card title={'Hello world'}>
@@ -120,4 +118,23 @@ stories.add('With taskbar on details mode', () => {
 			</Card>
 		</div>
 	)
-})
+}
+
+_basic.storyName = 'Basic usage of Card'
+_withTaskBar.storyName = 'With taskbar'
+_withActionButtons.storyName = 'With action buttons'
+_withTaskbarCreateMode.storyName = 'With taskbar on create mode'
+_withTaskbarEditMode.storyName = 'With taskbar on edit mode'
+_withTaskbarDetailsMode.storyName = 'With taskbar on details mode'
+
+export default {
+	title: 'Card',
+	component: Card,
+} as ComponentMeta<typeof Card>
+
+export const Basic = _basic
+export const WithActionButtons = _withActionButtons
+export const WithTaskBar = _withTaskBar
+export const WithTaskbarCreateMode = _withTaskbarCreateMode
+export const WithTaskbarEditMode = _withTaskbarEditMode
+export const WithTaskbarDetailsMode = _withTaskbarDetailsMode

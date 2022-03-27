@@ -1,5 +1,5 @@
 import { IIconProps } from '@fluentui/react'
-import { storiesOf } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import * as React from 'react'
 import { LoadButton } from './LoadButton'
 
@@ -7,11 +7,8 @@ const defaultstyle = {
 	padding: '40px',
 }
 
-const storiesHeader = storiesOf('LoadButton', module)
-
-storiesHeader.add('Basic usage of Header', () => {
+const _basic: ComponentStory<typeof LoadButton> = () => {
 	const deleteIcon: IIconProps = { iconName: 'Delete' }
-
 	const deleteItem = () => {
 		alert('deleted')
 	}
@@ -26,4 +23,12 @@ storiesHeader.add('Basic usage of Header', () => {
 				onClick={deleteItem} />
 		</div>
 	)
-})
+}
+_basic.storyName = 'Basic usage of LoadButton'
+
+export default {
+	title: 'LoadButton',
+	component: LoadButton,
+} as ComponentMeta<typeof LoadButton>
+
+export const Basic = _basic

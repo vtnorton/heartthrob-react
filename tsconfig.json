@@ -25,7 +25,11 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": [
+      "react",
+      "jest",
+    ]
   },
   "include": ["src/**/*", "main.ts"],
   "exclude": ["node_modules", "build", "scripts", "**/*.spec.ts"]

@@ -1,16 +1,14 @@
+/* eslint-disable no-unused-labels */
 import { IIconProps } from '@fluentui/react'
-import { storiesOf } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import * as React from 'react'
 import { ActionButton } from './ActionButton'
 import { ActionButtonProps } from './ActionButtonTypes'
 
-const defaultstyle = {
-	padding: '40px',
-}
-
-const storiesHeader = storiesOf('ActionButton', module)
-
-storiesHeader.add('Basic usage of ActionButton', () => {
+const _primary: ComponentStory<typeof ActionButton> = () => {
+	const defaultstyle = {
+		padding: '40px',
+	}
 	const deleteIcon: IIconProps = { iconName: 'Delete' }
 	const createIcon: IIconProps = { iconName: 'Add' }
 	const anotherIcon: IIconProps = { iconName: 'Play' }
@@ -30,4 +28,12 @@ storiesHeader.add('Basic usage of ActionButton', () => {
 			<ActionButton props={defaultProps} />
 		</div>
 	)
-})
+}
+_primary.storyName = 'Basic usage of ActionButton'
+
+export default {
+	title: 'ActionButton',
+	component: ActionButton,
+} as ComponentMeta<typeof ActionButton>
+
+export const Primary = _primary

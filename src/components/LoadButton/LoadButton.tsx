@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { PrimaryButton } from '@fluentui/react/lib/Button'
-import { Spinner } from '@fluentui/react/lib/components/Spinner/Spinner'
-import { SpinnerSize } from '@fluentui/react/lib/components/Spinner/Spinner.types'
+import { Spinner, SpinnerSize } from '@fluentui/react/lib/Spinner'
 
 import { LoadButtonProps } from './LoadButtonTypes'
 

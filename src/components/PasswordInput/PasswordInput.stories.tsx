@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { storiesOf } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import React, { useState } from 'react'
 import { PasswordInput } from './PasswordInput'
 
@@ -7,9 +7,7 @@ const defaultstyle = {
   padding: '40px',
 }
 
-const stories = storiesOf('PasswordInput', module)
-
-stories.add('Basic usage', () => {
+const _basic: ComponentStory<typeof PasswordInput> = () => {
   const [password, setPassword] = useState('')
 
   return (
@@ -17,7 +15,14 @@ stories.add('Basic usage', () => {
       <PasswordInput onSubmitMessage={(e) => setPassword(e)} />
 
       <br />
-			A senha é: {password}
+      A senha é: {password}
     </div>
   )
-})
+}
+_basic.storyName = 'Basic usage of PasswordInput'
+
+export default {
+  title: 'PasswordInput',
+  component: PasswordInput,
+} as ComponentMeta<typeof PasswordInput>
+export const Basic = _basic
