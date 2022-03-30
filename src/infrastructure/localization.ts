@@ -27,6 +27,9 @@ const strings = new LocalizedStrings(
       managementInfo: 'Management info',
       managementCreated: 'Created in {0} by {1}.',
       managementUpdated: 'Updated in {0} by {1}.',
+      anyDataTitle: 'No {0} found 😓.',
+      anyDataDescription: 'Any {0} has been found in the system yet, ',
+      anyDataDescription2: 'you can create one now',
     },
     pt: {
       return: 'Voltar',
@@ -53,6 +56,9 @@ const strings = new LocalizedStrings(
       managementInfo: 'Informações administrativas',
       managementCreated: 'Criado em {0} por {1}.',
       managementUpdated: 'Atualizado em {0} por {1}.',
+      anyDataTitle: 'Nenhum {0} encontrado 😓.',
+      anyDataDescription: 'Nenhum {0} foi encontrado no sistema ainda, ',
+      anyDataDescription2: 'você pode criar um agora',
     },
   },
   {
