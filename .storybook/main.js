@@ -1,5 +1,6 @@
 module.exports = {
   addons: [
+		'storybook-dark-mode',
 		'@storybook/addon-essentials',
 		'@storybook/addon-controls',
 		'@storybook/preset-scss',
