@@ -23,7 +23,7 @@ const _primary: ComponentStory<typeof AnyData> = () => {
 		</div>
 	)
 }
-_primary.storyName = 'Basic usage of ActionButton'
+_primary.storyName = 'Basic usage of AnyData'
 
 export default {
 	title: 'AnyData',

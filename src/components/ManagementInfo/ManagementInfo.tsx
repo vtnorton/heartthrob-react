@@ -1,17 +1,9 @@
 import React from 'react'
 
-import { Card } from 'components/Card'
-import { notInformedDateTreatment, notInformedTextTreatment } from 'extensions/stringExtensions'
-import strings from 'infrastructure/localization'
-
-interface ManagementInfoProps {
-	item: {
-		createdIn: Date,
-		createdBy: string,
-		updatedIn: Date,
-		updatedBy: string,
-	}
-}
+import { Card } from './../Card/index'
+import { notInformedDateTreatment, notInformedTextTreatment } from '../../extensions/stringExtensions'
+import strings from '../../infrastructure/localization'
+import { ManagementInfoProps } from './ManagementInfoTypes'
 
 const ManagementInfo = (props: ManagementInfoProps) => {
 	const showUpdateInfo = () => {
