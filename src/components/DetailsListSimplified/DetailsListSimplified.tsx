@@ -4,6 +4,7 @@ import { DetailsList, DetailsListLayoutMode, SelectionMode } from '@fluentui/rea
 import AnyDataComponent, { EntityName } from './../AnyData/AnyData'
 import ColumnsDefinitions from './ColumnsDefinitions'
 import { ISimplifiedColumn } from './DetailsListSimplifiedTypes'
+import strings from 'infrastructure/localization'
 
 interface Props {
 	onNewItem: any
@@ -29,7 +30,7 @@ const DetailsListSimplified = (props: Props): JSX.Element => {
 
 	// TODO: adicionar shimmer
 	if (props.items === undefined)
-		return <p>Carregando...</p>
+		return <p>{strings.getString('loading')}</p>
 
 	if (props.items?.length === 0)
 		return <AnyDataComponent onClick={props.onNewItem} entityName={props.entityName ? props.entityName : { singleName: 'item' }} />

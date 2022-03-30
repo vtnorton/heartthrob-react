@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React from 'react'
 import { IColumn, IIconProps, PrimaryButton } from '@fluentui/react'
-import PersonaMode from './ColumnsModes'
-import { notInformedTreatment } from 'heartthrob-react'
 
+import { notInformedTreatment } from 'extensions/stringExtensions'
+import strings from 'infrastructure/localization'
+import PersonaMode from './ColumnsModes'
 import { ColumnMode, ISimplifiedColumn } from './DetailsListSimplifiedTypes'
 
 
@@ -32,6 +35,20 @@ const ColumnsDefinitions = (columns: ISimplifiedColumn[]): IColumn[] => {
 			return false
 		}
 
+		const isIconOnlyProperty = (): boolean => {
+			if (!element.iconName)
+				return false
+
+			return element.iconName?.length > 0 ? true : false
+		}
+
+		const isResizable = (): boolean => {
+			if (!element.iconName)
+				return false
+
+			return element.iconName?.length > 0 || element.mode === ColumnMode.Actions ? false : true
+		}
+
 		let columnItem: IColumn = {
 			key: element.name,
 			name: element.name,
@@ -40,8 +57,8 @@ const ColumnsDefinitions = (columns: ISimplifiedColumn[]): IColumn[] => {
 			maxWidth: columnWidth(true),
 			isPadded: true,
 			//isSorted: element.mode === ColumnMode.Actions ? false : element.isSortedAndFilted,
-			isIconOnly: element.iconName?.length > 0 ? true : false,
-			isResizable: element.iconName?.length > 0 || element.mode === ColumnMode.Actions ? false : true,
+			isIconOnly: isIconOnlyProperty(),
+			isResizable: isResizable(),
 			//sortAscendingAriaLabel: 'Ordeando de A a Z',
 			//sortDescendingAriaLabel: 'Ordenado de Z a A',
 		}
@@ -57,14 +74,18 @@ const ColumnsDefinitions = (columns: ISimplifiedColumn[]): IColumn[] => {
 				columnItem = PersonaMode(columnItem)
 				break
 			case ColumnMode.Actions:
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 				columnItem.onRender = (item?: any, index?: number, column?: IColumn) => {
 					const viewItem: IIconProps = { iconName: 'EntryView' }
-					return <PrimaryButton href={`/${element.entryName}/${item[columnItem.fieldName]}`} text='Visualisar' iconProps={viewItem} />
+					const title = columnItem.fieldName ? columnItem.fieldName : 0
+					return <PrimaryButton href={`/${element.entryName}/${item[title]}`} text={strings.getString('view')} iconProps={viewItem} />
 				}
 				break
 			default:
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 				columnItem.onRender = (item?: any, index?: number, column?: IColumn) => {
-					return <p>{notInformedTreatment(item[columnItem.fieldName])}</p>
+					const title = columnItem.fieldName ? columnItem.fieldName : 0
+					return <p>{notInformedTreatment(item[title])}</p>
 				}
 				break
 		}
