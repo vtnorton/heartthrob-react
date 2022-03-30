@@ -7,7 +7,7 @@
   "types": "build/index.d.ts",
   "source": "src/index.ts",
   "scripts": {
-    "storybook": "start-storybook -p 6006 -c ./",
+    "storybook": "start-storybook -p 6006 -c .storybook/",
     "build-storybook": "build-storybook",
     "test": "jest",
     "build": "parcel build"
@@ -35,9 +35,11 @@
     "@parcel/transformer-typescript-types": "^2.4.0",
     "@storybook/addon-controls": "^6.4.19",
     "@storybook/addon-essentials": "^5.3.21",
+    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/builder-webpack5": "^6.4.19",
     "@storybook/manager-webpack5": "^6.4.19",
-    "@storybook/react": "^6.1.21",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^6.4.19",
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.23",
     "@types/react": "^17.0.43",

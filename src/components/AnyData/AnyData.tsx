@@ -1,15 +1,13 @@
-import { notInformedTextTreatment } from 'extensions/stringExtensions'
-import strings from 'infrastructure/localization'
+import { notInformedTextTreatment } from './../../extensions/stringExtensions'
+import strings from './../../infrastructure/localization'
 import React from 'react'
 
 import './AnyData.scss'
+import { AnyDataProps } from './AnyDataTypes'
 
-interface Props {
-	onClick?: any,
-	entityName?: EntityName
-}
 
-const AnyDataComponent = (props: Props) => {
+
+const AnyData = (props: AnyDataProps) => {
 	const entityName = (): string => {
 		if (props.entityName)
 			return props.entityName?.singleName
@@ -32,8 +30,4 @@ const AnyDataComponent = (props: Props) => {
 	)
 }
 
-export interface EntityName {
-	singleName: string,
-}
-
-export default AnyDataComponent
+export { AnyData }
