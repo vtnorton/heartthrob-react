@@ -2,8 +2,9 @@
 import React from 'react'
 import { IColumn, IIconProps, PrimaryButton } from '@fluentui/react'
 
-import { notInformedTreatment } from 'extensions/stringExtensions'
-import strings from 'infrastructure/localization'
+import strings from './../../infrastructure/localization'
+import { notInformedTreatment } from './../../extensions/stringExtensions'
+
 import PersonaMode from './ColumnsModes'
 import { ColumnMode, ISimplifiedColumn } from './DetailsListSimplifiedTypes'
 

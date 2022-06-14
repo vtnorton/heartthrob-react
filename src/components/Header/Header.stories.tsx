@@ -25,7 +25,7 @@ const _basic: ComponentStory<typeof Header> = () => {
 _basic.storyName = 'Basic usage of Header'
 
 export default {
-	title: 'Button',
+	title: 'Header',
 	component: Header,
 } as ComponentMeta<typeof Header>
 export const Basic = _basic

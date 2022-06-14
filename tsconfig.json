@@ -27,6 +27,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "types": [
+      "@types/react",
       "react",
       "jest",
     ]

@@ -1,14 +1,14 @@
 import React from 'react'
 import { IColumn, Persona, PersonaSize } from '@fluentui/react'
-import { getIntials } from 'extensions/stringExtensions'
+import { getIntials } from './../../extensions/stringExtensions'
 
 const PersonaMode = (columnItem: IColumn): IColumn => {
 	columnItem.onRender = (item?: any, index?: number, column?: IColumn) => {
 		return <Persona
-			imageInitials={getIntials(item.firstName)}
+			imageInitials={getIntials(item.fullName)}
 			showInitialsUntilImageLoads
 			hidePersonaDetails
-			imageAlt={item.firstName}
+			imageAlt={item.fullName}
 			size={PersonaSize.size32} />
 	}
 

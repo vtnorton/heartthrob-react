@@ -1,19 +1,12 @@
 import React from 'react'
 import { DetailsList, DetailsListLayoutMode, SelectionMode } from '@fluentui/react'
 
-import AnyDataComponent, { EntityName } from './../AnyData/AnyData'
+import strings from './../../infrastructure/localization'
+import { AnyData } from './../AnyData/AnyData'
 import ColumnsDefinitions from './ColumnsDefinitions'
-import { ISimplifiedColumn } from './DetailsListSimplifiedTypes'
-import strings from 'infrastructure/localization'
+import { DetailsListSimplifiedProps } from './DetailsListSimplifiedTypes'
 
-interface Props {
-	onNewItem: any
-	items: any[]
-	columns: ISimplifiedColumn[]
-	entityName?: EntityName
-}
-
-const DetailsListSimplified = (props: Props): JSX.Element => {
+const DetailsListSimplified = (props: DetailsListSimplifiedProps): JSX.Element => {
 	const DisplayList = () => {
 		const _getKey = (item: any, index?: number): string => {
 			return item.key
@@ -33,7 +26,7 @@ const DetailsListSimplified = (props: Props): JSX.Element => {
 		return <p>{strings.getString('loading')}</p>
 
 	if (props.items?.length === 0)
-		return <AnyDataComponent onClick={props.onNewItem} entityName={props.entityName ? props.entityName : { singleName: 'item' }} />
+		return <AnyData onClick={props.onNewItem} entityName={props.entityName ? props.entityName : { singleName: 'item' }} />
 
 	// TODO: adicionar visão de erro
 	return (
