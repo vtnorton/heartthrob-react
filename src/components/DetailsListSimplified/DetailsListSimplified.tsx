@@ -8,6 +8,7 @@ import strings from './../../infrastructure/localization'
 import { AnyData } from './../AnyData/AnyData'
 import ColumnsDefinitions from './ColumnsDefinitions'
 import { DetailsListSimplifiedProps } from './DetailsListSimplifiedTypes'
+import './DetailsListSimplified.scss'
 
 const DetailsListSimplified = (props: DetailsListSimplifiedProps): JSX.Element => {
 	const DisplayList = () => {
