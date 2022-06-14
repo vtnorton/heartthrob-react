@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import React from 'react'
 import { IColumn } from '@fluentui/react'
 import { notInformedTreatment } from './../../../extensions/stringExtensions'

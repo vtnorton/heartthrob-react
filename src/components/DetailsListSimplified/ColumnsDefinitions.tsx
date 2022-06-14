@@ -4,6 +4,7 @@ import { ColumnMode, ISimplifiedColumn } from './DetailsListSimplifiedTypes'
 import PersonaMode from './ColumnMode/PersonaMode'
 import ActionMode from './ColumnMode/ActionMode'
 import DefaultMode from './ColumnMode/DefaultMode'
+import ManagementInfoMode from './ColumnMode/ManagementInfoMode'
 
 
 const ColumnsDefinitions = (columns: ISimplifiedColumn[]): IColumn[] => {
@@ -45,6 +46,9 @@ const ColumnsDefinitions = (columns: ISimplifiedColumn[]): IColumn[] => {
 		switch (element.mode) {
 			case ColumnMode.Person:
 				columnItem = PersonaMode(columnItem, element)
+				break
+			case ColumnMode.ManagementInfo:
+				columnItem = ManagementInfoMode(columnItem, element)
 				break
 			case ColumnMode.Actions:
 				columnItem = ActionMode(columnItem, element)

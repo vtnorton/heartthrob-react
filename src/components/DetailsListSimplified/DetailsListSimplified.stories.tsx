@@ -12,14 +12,18 @@ interface Client {
 	id: number,
 	fullName?: string,
 	job?: string,
-	bio: string
+	bio: string,
+	createdIn?: Date,
+	createdBy?: string,
+	updatedIn?: Date,
+	updatedBy?: string,
 }
 
 const _basic: ComponentStory<typeof DetailsListSimplified> = () => {
 	initializeIcons()
 
 	const itens: Client[] = [
-		{ id: 1, fullName: 'John Doe', job: 'Consultant', bio: 'Snackwave helvetica lumbersexual vaporware organic. Art party helvetica schlitz bicycle rights.' },
+		{ id: 1, fullName: 'John Doe', job: 'Consultant', bio: 'Snackwave helvetica lumbersexual vaporware organic. Art party helvetica schlitz bicycle rights.', createdIn: new Date(), createdBy: 'John Doe', updatedIn: new Date(), updatedBy: 'John Doe' },
 		{ id: 2, fullName: 'Dustin Herrison', job: 'Consultant', bio: 'Mixtape meggings fingerstache, waistcoat flannel knausgaard vaporware.' },
 		{ id: 3, fullName: 'Mike Mitchel', job: 'Consultant', bio: 'Schlitz single-origin coffee live-edge iPhone meh waistcoat vice butcher whatever snackwave pickled cronut lomo mlkshk. ' },
 	]
@@ -36,6 +40,10 @@ const _basic: ComponentStory<typeof DetailsListSimplified> = () => {
 		{
 			name: 'Biografia',
 			fieldName: 'bio',
+		},
+		{
+			name: 'Últimas informações',
+			mode: ColumnMode.ManagementInfo,
 		},
 		{
 			name: 'Opções',

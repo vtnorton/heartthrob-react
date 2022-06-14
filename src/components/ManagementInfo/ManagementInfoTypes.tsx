@@ -1,8 +1,10 @@
 export interface ManagementInfoProps {
-	item: {
-		createdIn: Date,
-		createdBy: string,
-		updatedIn: Date,
-		updatedBy: string,
-	}
+	item: ManagementInfomations
+}
+
+export interface ManagementInfomations {
+	createdIn: Date,
+	createdBy: string,
+	updatedIn: Date,
+	updatedBy: string,
 }

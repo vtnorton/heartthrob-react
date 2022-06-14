@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import { ManagementInfomations } from './../../components/ManagementInfo'
 import { EntityName } from './../AnyData/AnyDataTypes'
 
 export interface ISimplifiedColumn {
@@ -8,11 +11,13 @@ export interface ISimplifiedColumn {
 	isSortedAndFilted?: boolean,
 	mode?: ColumnMode,
 	personaMode?: PersonaModeProps,
+	managementInfoMode?: ManagementInfomations,
 }
 
 export enum ColumnMode {
 	Person,
 	Actions,
+	ManagementInfo
 }
 
 export interface PersonaModeProps {

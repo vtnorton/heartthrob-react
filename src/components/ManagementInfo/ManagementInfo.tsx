@@ -3,24 +3,29 @@ import React from 'react'
 import { Card } from './../Card/index'
 import { notInformedDateTreatment, notInformedTextTreatment } from '../../extensions/stringExtensions'
 import strings from '../../infrastructure/localization'
-import { ManagementInfoProps } from './ManagementInfoTypes'
+import { ManagementInfomations, ManagementInfoProps } from './ManagementInfoTypes'
+
+const createdByText = (props: ManagementInfomations) => {
+	return <p>{strings.formatString(strings.managementCreated, notInformedDateTreatment(props.createdIn), notInformedTextTreatment(props.createdBy))}</p>
+}
+
+const updatedByText = (props: ManagementInfomations) => {
+	if (props.createdIn !== props.updatedIn) {
+		return (
+			<p>{strings.formatString(strings.managementUpdated, notInformedDateTreatment(props.updatedIn), notInformedTextTreatment(props.updatedBy))}</p>
+		)
+	}
+	return null
+}
 
 const ManagementInfo = (props: ManagementInfoProps) => {
-	const showUpdateInfo = () => {
-		if (props.item.createdIn !== props.item.updatedIn) {
-			return (
-				<p>{strings.formatString(strings.managementUpdated, notInformedDateTreatment(props.item.updatedIn), notInformedTextTreatment(props.item.updatedBy))}</p>
-			)
-		}
-		return null
-	}
-
 	return (
 		<Card title={strings.getString('managementInfo')}>
-			<p>{strings.formatString(strings.managementCreated, notInformedDateTreatment(props.item.createdIn), notInformedTextTreatment(props.item.createdBy))}</p>
-			{showUpdateInfo()}
+			{createdByText(props.item)}
+			{updatedByText(props.item)}
 		</Card>
 	)
 }
 
+export { createdByText, updatedByText }
 export default ManagementInfo
