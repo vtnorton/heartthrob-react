@@ -1,7 +1,17 @@
 module.exports = {
   addons: [
+		'storybook-dark-mode',
 		'@storybook/addon-essentials',
 		'@storybook/addon-controls',
+		'@storybook/preset-scss',
+		{
+			name: '@storybook/addon-postcss',
+			options: {
+				postcssLoaderOptions: {
+					implementation: require('postcss'),
+				},
+			},
+		},
 	],
 	core: {
 		builder: 'webpack5',
@@ -9,6 +19,7 @@ module.exports = {
   framework: '@storybook/react',
 	features: {
 		storyStoreV7: true,
+		postcss: false,
 	},
 	stories: ['../src/**/*.stories.tsx'],
   webpackFinal: async (config, { configType }) => {
