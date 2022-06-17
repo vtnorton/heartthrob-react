@@ -1,18 +1,9 @@
 /* eslint-disable no-unused-labels */
 import * as React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import ManagementInfo from './ManagementInfo'
-import { ManagementInfoProps } from './ManagementInfoTypes'
+import ManagementInfo from '../ManagementInfo'
+import { onlyCreatedIn, withUpdatedIn } from './ManagementInfoUtils'
 
-const date = new Date()
-const item: ManagementInfoProps = {
-	item: {
-		createdIn: date,
-		createdBy: 'Vitor Norton',
-		updatedIn: date,
-		updatedBy: 'Vitor Norton',
-	},
-}
 const defaultstyle = {
 	padding: '40px',
 }
@@ -20,25 +11,14 @@ const defaultstyle = {
 const _primary: ComponentStory<typeof ManagementInfo> = () => {
 	return (
 		<div style={defaultstyle}>
-			<ManagementInfo item={item.item} />
+			<ManagementInfo item={onlyCreatedIn.item} />
 		</div>
 	)
 }
 const _withUpdatedInfo: ComponentStory<typeof ManagementInfo> = () => {
-	const newUpdatedIn = new Date(item.item.createdIn.getTime() + (1000 * 60 * 60 * 24))
-	const newUpdatedBy = item.item.updatedBy = 'Christine Daee'
-	const newItem: ManagementInfoProps = {
-		item: {
-			createdIn: item.item.createdIn,
-			createdBy: item.item.createdBy,
-			updatedIn: newUpdatedIn,
-			updatedBy: newUpdatedBy,
-		},
-	}
-
 	return (
 		<div style={defaultstyle}>
-			<ManagementInfo item={newItem.item} />
+			<ManagementInfo item={withUpdatedIn.item} />
 		</div>
 	)
 }

@@ -1,4 +1,4 @@
 export * from './DetailsListSimplifiedTypes'
 export * from './DetailsListSimplified'
-export * from './ColumnsModes'
+export * from './ColumnMode/index'
 export * from './ColumnsDefinitions'

@@ -9,7 +9,8 @@
   "scripts": {
     "storybook": "start-storybook -p 6006 -c .storybook/",
     "build-storybook": "build-storybook",
-    "test": "jest",
+    "test": "jest --coverage --collectCoverageFrom=\"./src/**\"",
+    "test:watch": "jest --watch",
     "build": "parcel build"
   },
   "repository": {
